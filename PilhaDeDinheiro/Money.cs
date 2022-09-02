@@ -19,7 +19,7 @@ namespace PilhaDeDinheiro
 
         public override string ToString()
         {
-            return base.ToString();
+            return "Valor: \n" + this.Valor;
         }
     }
 }

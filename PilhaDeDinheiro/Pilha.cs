@@ -31,8 +31,12 @@ namespace PilhaDeDinheiro
 
         public void Inserir(Money dinheiro)
         {
-            if(VerificarVazio())
+            if (VerificarVazio())
+            {
+
                 this.Topo = dinheiro;
+                dinheiro.Anterior = null;
+            }
             else
             {
                 dinheiro.Anterior = this.Topo;
@@ -45,7 +49,10 @@ namespace PilhaDeDinheiro
             if (VerificarVazio())
                 Console.WriteLine("Pilha vazia. Impossivel remover.");
             else
+            {
                 this.Topo = Topo.Anterior;
+                Console.WriteLine("objeto removido do topo com sucesso");
+            }
         }
 
         public void Imprimir()
@@ -59,7 +66,7 @@ namespace PilhaDeDinheiro
                 {
                     Console.WriteLine(auxiliar.ToString());
                     auxiliar = auxiliar.Anterior;
-                } while (auxiliar.Anterior != null);
+                } while (auxiliar != null);
             }
         }
     }
